@@ -24,7 +24,7 @@
 <body class="aw-layout-simple-page">
 	<div class="aw-layout-simple-page__container">
 
-		<form:form class="form-horizontal col-lg-11" action="/logar" method="post" commandName="usuario">
+		<form:form class="form-horizontal col-lg-11" action="/usuario/logar" method="post" commandName="usuario">
 			<div class="aw-simple-panel">
 				<!-- link da imagem original 
 					https://www.google.com.br/search?q=hackathon.png&espv=2&biw=1366&bih=702&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjo8Y3GtJPSAhXIW5AKHW9MCrQQ_AUIBigB#imgrc=7iOti2lQVF5_pM:
@@ -52,7 +52,7 @@
 					</div>
 
 					<div class="aw-simple-panel__footer">
-						Novo por aqui? <a href="/usuario/novo">Cadastre-se</a>.
+						Novo por aqui? <a href="/usuario/cadastrar">Cadastre-se</a>.
 					</div>
 				</div>
 		</form:form>

@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.consumerama.dao.UsuarioDAO;
 import com.consumerama.model.Usuario;
 import com.consumerama.repository.UsuarioRepository;
 import com.consumerama.security.UserSession;
@@ -19,33 +18,30 @@ import com.consumerama.security.UserSession;
 public class UsuarioController {
 
 	@Autowired
-	UsuarioRepository usuarioS;
-	
-	@Autowired
 	UserSession userSession;
 	
 	@Autowired
-	UsuarioDAO usuarioDAO;
+	UsuarioRepository usuarioS;
 	
-	@PostMapping("/cadastrar")
-	public ModelAndView cadastrar(Usuario usuario, RedirectAttributes redirectAttributes){
-		ModelAndView mav = new ModelAndView("index");
-		
-		usuarioS.save(usuario);
-		
-		return mav;
-	}
-	
-	@GetMapping("/cadastrar")
+
+	@GetMapping("/novo")
 	public ModelAndView cadastro(Usuario usuario){
 		ModelAndView mav = new ModelAndView("/usuario/formCadastro");
 		mav.addObject("usuario", usuario);
 		return mav;
 	}
 	
-	@GetMapping("/editar")
+	@PostMapping("/novo")
+	public ModelAndView cadastrar(Usuario usuario, RedirectAttributes redirectAttributes){
+		ModelAndView mav = new ModelAndView("index");
+		usuarioS.save(usuario);
+		return mav;
+	}
+	
+	//Enviando para a páginda de ediçao dos dados do usuário
+	@GetMapping("/edicao")
 	public ModelAndView editar(){
-		ModelAndView mav = new ModelAndView("/usuario/formCadastro");
+		ModelAndView mav = new ModelAndView("/usuario/editar");
 		
 		userSession.getUsuario().getId();
 		Usuario usuario = usuarioS.findOne(userSession.getUsuario().getId());
@@ -54,29 +50,6 @@ public class UsuarioController {
 		return mav;
 	}
 	
-	@RequestMapping("/login")
-	public ModelAndView login(Usuario usuario){
-		ModelAndView model = new ModelAndView("/index");
-		model.addObject("usuario", usuario);
-		
-		return model;
-	}
-	
-	@RequestMapping(value = "/logar", method = RequestMethod.POST)
-	public ModelAndView logar(Usuario usuario, RedirectAttributes redirectAttributes){
-		ModelAndView model;
-		Usuario user = usuarioDAO.logar(usuario);
-		
-		if(user != null){
-			userSession.setUsuario(user);
-			model = new ModelAndView("redirect:/usuario/home");
-		}else{
-			model = new ModelAndView("redirect:/usuario/login");
-			redirectAttributes.addFlashAttribute("loginInvalido", "Email ou Senha inválidos, por favor tente novamente");
-		}
-		
-		return model;
-	}
 	
 	@RequestMapping(value = "/home", method = RequestMethod.GET)
 	public ModelAndView home(Usuario usuario, RedirectAttributes redirectAttributes){
