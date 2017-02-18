@@ -12,22 +12,6 @@ import com.consumerama.repository.UsuarioRepository;
 @RestController
 public class UsuarioController {
 
-	@Autowired
-	UsuarioRepository usuarioS;
-	
-	@RequestMapping(value = "/cadastrar", 
-			method = RequestMethod.GET)
-	public ModelAndView cadastrar(){
-		ModelAndView mav = new ModelAndView("index");
-		
-		Usuario user = new Usuario();
-		
-		user.setNome("Jocsã Misrraine");
-		user.setEmail("jocsadw@gmail.com");
-		usuarioS.save(user);
-		
-		return mav;
-	}
 	
 	
 }
