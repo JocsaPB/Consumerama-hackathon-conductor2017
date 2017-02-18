@@ -29,11 +29,5 @@ public class UsuarioController {
 		return mav;
 	}
 	
-	@RequestMapping("/teste")
-	public ModelAndView listagemDeAnuncios() {
-		ModelAndView model = new ModelAndView("/index");
-
-		return model;
-	}
 	
 }
