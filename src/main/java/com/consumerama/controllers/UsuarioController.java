@@ -69,12 +69,18 @@ public class UsuarioController {
 		
 		if(user != null){
 			userSession.setUsuario(user);
-			model = new ModelAndView("redirect:/gerenciador/meusAnuncios");
+			model = new ModelAndView("redirect:/usuario/home");
 		}else{
 			model = new ModelAndView("redirect:/usuario/login");
 			redirectAttributes.addFlashAttribute("loginInvalido", "Email ou Senha inválidos, por favor tente novamente");
 		}
 		
+		return model;
+	}
+	
+	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	public ModelAndView home(Usuario usuario, RedirectAttributes redirectAttributes){
+		ModelAndView model = new ModelAndView("/usuario/home");
 		return model;
 	}
 	
