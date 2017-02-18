@@ -66,9 +66,10 @@ public class UsuarioController {
 	public ModelAndView logar(Usuario usuario, RedirectAttributes redirectAttributes){
 		ModelAndView model;
 		Usuario user = usuarioDAO.logar(usuario);
+		
 		if(user != null){
-				userSession.setUsuario(user);
-				model = new ModelAndView("redirect:/gerenciador/meusAnuncios");
+			userSession.setUsuario(user);
+			model = new ModelAndView("redirect:/gerenciador/meusAnuncios");
 		}else{
 			model = new ModelAndView("redirect:/usuario/login");
 			redirectAttributes.addFlashAttribute("loginInvalido", "Email ou Senha inválidos, por favor tente novamente");

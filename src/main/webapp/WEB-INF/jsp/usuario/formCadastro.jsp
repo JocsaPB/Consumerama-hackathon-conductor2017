@@ -11,7 +11,7 @@
 </head>
 <body>
 
-	<form:form class="form-horizontal col-lg-11" action="/usuario/cadastrar" method="post" commandName="usuario">
+<form:form class="form-horizontal col-lg-11" action="/usuario/cadastrar" method="post" commandName="usuario">
   <fieldset>
     <legend>Cadastre-se</legend>
     

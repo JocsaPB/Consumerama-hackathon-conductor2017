@@ -1,3 +1,8 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -19,7 +24,7 @@
 <body class="aw-layout-simple-page">
 	<div class="aw-layout-simple-page__container">
 
-		<form action="ProjetoBase/cadastrar">
+		<form:form class="form-horizontal col-lg-11" action="/usuario/logar" method="post" commandName="usuario">
 			<div class="aw-simple-panel">
 				<!-- link da imagem original 
 					https://www.google.com.br/search?q=hackathon.png&espv=2&biw=1366&bih=702&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjo8Y3GtJPSAhXIW5AKHW9MCrQQ_AUIBigB#imgrc=7iOti2lQVF5_pM:
@@ -32,27 +37,29 @@
 
 				<div class="aw-simple-panel__box">
 					<div class="form-group  has-feedback">
-						<input type="text" class="form-control  input-lg"
-							placeholder="Seu e-mail" /> <span
-							class="glyphicon  glyphicon-envelope  form-control-feedback"
-							aria-hidden="true"></span>
+<!-- 						<input type="text" class="form-control  input-lg" -->
+<!-- 							placeholder="Seu e-mail" /> <span -->
+<!-- 							class="glyphicon  glyphicon-envelope  form-control-feedback" -->
+<!-- 							aria-hidden="true"></span> -->
+							<form:input path="email" class="form-control" placeholder="email" required="required"/>
 					</div>
 
 					<div class="form-group  has-feedback">
-						<input type="password" class="form-control  input-lg"
-							placeholder="Sua senha" /> <span
-							class="glyphicon  glyphicon-lock  form-control-feedback"
-							aria-hidden="true"></span>
+<!-- 						<input type="password" class="form-control  input-lg" -->
+<!-- 							placeholder="Sua senha" /> <span -->
+<!-- 							class="glyphicon  glyphicon-lock  form-control-feedback" -->
+<!-- 							aria-hidden="true"></span> -->
+							<form:input path="senha" class="form-control" placeholder="senha" required="required"/>
 					</div>
 					<div class="form-group">
 						<button class="btn  btn-primary  btn-lg  aw-btn-full-width">Entrar</button>
 					</div>
 
 					<div class="aw-simple-panel__footer">
-						Novo por aqui? <a href="#">Cadastre-se</a>.
+						Novo por aqui? <a href="/usuario/cadastrar">Cadastre-se</a>.
 					</div>
 				</div>
-		</form>
+		</form:form>
 
 	</div>
 
