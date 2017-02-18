@@ -30,8 +30,7 @@ public class Usuario {
 	@Column(name = "ENDERECO")
 	private String endereco;
 
-	@OneToMany(fetch = FetchType.LAZY)
-	@JoinColumn(name = "ID_USUARIO")
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
 	private List<Pagamento> pagamentos;
 
 	@Column(name = "SENHA")
@@ -83,6 +82,10 @@ public class Usuario {
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+	
+	public boolean isIdValido() {
+		return (this.id != null && this.id != 0) ? true : false;
 	}
 
 }
