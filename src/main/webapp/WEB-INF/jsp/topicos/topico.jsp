@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Minhas Categorias</title>
+<title>Tópico - ${topico.assunto}</title>
 <jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp"></jsp:include>
 </head>
 <body>
@@ -34,24 +34,27 @@
 			&nbsp
 			<!-- div apenas para criar espaçamento -->
 		</div>
-		<div class="list-group">
-			<c:forEach items="${mensagens}" var="mensagem">
-				<div class="col-md-12 list-group-item">
+		<section class="aw-layout-content  js-content"
+		style="padding-top: 10px; padding-left:30px; padding-right:30px; height: 150px">
+			<div class="list-group">
+				<c:forEach items="${mensagens}" var="mensagem">
+					<div class="col-md-12 list-group-item">
+						<div>
+							<p>${mensagem.texto}</p>
+						</div>
+						<hr />
+						<div style="float: right">
+							<strong>${mensagem.usuario.nome}</strong>
+						</div>
+					</div>
+					<br />
 					<div>
-						<p>${mensagem.texto}</p>
+						&nbsp
+						<!-- div apenas para criar espaçamento -->
 					</div>
-					<hr/>
-					<div style="float: right">
-						<strong>${mensagem.usuario.nome}</strong>
-					</div>
-				</div>
-				<br />
-				<div>
-					&nbsp
-					<!-- div apenas para criar espaçamento -->
-				</div>
-			</c:forEach>
-		</div>
+				</c:forEach>
+			</div>
+		</section>
 
 		<div class="row">
 		<div class="col-md-12">

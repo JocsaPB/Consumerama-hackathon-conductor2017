@@ -4,13 +4,17 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Minhas Categorias</title>
+<title>Novo tópico</title>
 <jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp"></jsp:include>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/jsp/includes/layout/layout-navsidebar.jsp"></jsp:include>
 	<section class="aw-layout-content  js-content"
 		style="padding-top: 10px; padding-left: 30px; padding-right: 30px; height: 150px">
+		<ol class="breadcrumb">
+			<li><a href="/usuario/home">Home</a></li>
+			<li class="active">Novo Tópico</li>
+		</ol>
 
 		<h3>Novo Tópico</h3>
 		<br/>

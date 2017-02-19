@@ -27,9 +27,6 @@ public class Usuario {
 	@Column(name = "EMAIL")
 	private String email;
 
-	@Column(name = "ENDERECO")
-	private String endereco;
-
 	@OneToMany(fetch = FetchType.LAZY, mappedBy = "usuario")
 	private List<Pagamento> pagamentos;
 
@@ -55,15 +52,7 @@ public class Usuario {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public String getEndereco() {
-		return endereco;
-	}
-
-	public void setEndereco(String endereco) {
-		this.endereco = endereco;
-	}
-
+	
 	public List<Pagamento> getPagamentos() {
 		return pagamentos;
 	}

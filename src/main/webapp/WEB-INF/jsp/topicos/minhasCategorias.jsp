@@ -5,6 +5,29 @@
 <meta charset="UTF-8">
 <title>Minhas Categorias</title>
 <jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp"></jsp:include>
+<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+
+<script type="text/javascript">
+
+$(document).ready(function (){
+	
+	$( "#selectCategoria" ).change(function() {
+		
+		var idCategoria = $( "#selectCategoria option:selected" ).val();
+		
+		
+		$.ajax({
+		      type: 'get',
+		      url:'/topico/topico/categoria/'+idCategoria,
+		      success: function(retorno){
+		        $('#listagem').html(retorno);  
+		      }
+	       });
+	});
+	
+});
+	
+</script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/jsp/includes/layout/layout-navsidebar.jsp"></jsp:include>
@@ -17,25 +40,38 @@
 		</ol>
 		<h3>Minhas Categorias</h3>
 		
-		<select class="form-control">
-			<option>Selecione uma categoria...</option>
-			<c:forEach items="${categorias}" var="categoria">
-				<option value="${categoria.id}">${categoria.nome}</option>
-			</c:forEach>
-		</select>
+		<c:if test="${categorias.size()>0}">
+			<select class="form-control" id="selectCategoria">
+				<option>Selecione uma categoria...</option>
+				<c:forEach items="${categorias}" var="categoria">
+					<option value="${categoria.id}">${categoria.nome}</option>
+				</c:forEach>
+			</select>
+		</c:if>
+		<c:if test="${categorias.isEmpty()}">
+			<select class="form-control" id="selectCategoria" disabled="disabled">
+				<option>Você ainda não possui categorias...</option>
+			</select>
+			<br/>
+			<blockquote class="blockquote">
+  <p class="mb-0">
+				Você ainda não pontuou em alguma categoria. Realize compras em nossas filiais e converta suas compras em pontos!
+			</p>
+</blockquote>
+			
+		</c:if>
 		<br/>
 		
-		<div class="row">
-			<div class="col-md-12" >
-				<a href="/topico/novo"><input class="btn btn-primary" style="float: right" value="Novo tópico"></a>
+		<c:if test="${categorias.size()>0}">
+			<div class="row">
+				<div class="col-md-12" >
+					<a href="/topico/novo"><input class="btn btn-primary" style="float: right" value="Novo tópico"></a>
+				</div>
 			</div>
-		</div>
+		</c:if>
 		<br/>
-		<div class="row" style="padding-bottom: 10px">
-			<div class="col-md-12" style="background-color: #f6f6f6">
-				<div class="bs-callout bs-callout-info" id="callout-helper-bg-specificity"> <h4>Dealing with specificity</h4> 
-				<p>Sometimes contextual background classes cannot be applied due to the specificity of another selector. In some cases, a sufficient workaround is to wrap your element's content in a <code>&lt;div&gt;</code> with the class.</p> </div>
-			</div>
+		<div id="listagem" class="row" style="padding-bottom: 10px">
+			<jsp:include page="/WEB-INF/jsp/topicos/topicosParcial.jsp"></jsp:include>
 		</div>
 	</section>
 

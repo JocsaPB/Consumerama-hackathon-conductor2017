@@ -18,11 +18,13 @@
 		<p style="text-align: center; width: 50%; margin-left: 25%; margin-bottom: 30px">
 			Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica
 		</p>
-		<div class="list-group">
+		<c:if test="${topicos.size()>0}">
+		
+			<div class="list-group">
 			<c:forEach items="${topicos}" var="topico">
 				<div class="col-md-12 list-group-item">
 					<div>
-						<a href="/topico/topico/${topico.id}"><p>${topico.texto}</p></a>
+						<a href="/topico/topico/${topico.id}"><p>${topico.assunto}</p></a>
 					</div>
 					<hr/>
 					<div style="float: right">
@@ -36,6 +38,13 @@
 				</div>
 			</c:forEach>
 		</div>
+		</c:if>
+		
+		<c:if test="${topicos.isEmpty()}">
+			<blockquote class="blockquote">
+				<p class="mb-0">Ainda não existe nenhum tópico criado...<br/><a href="/topico/novo">Seja o primeiro a criar!</a></p>
+			</blockquote>
+		</c:if>
 
 
 

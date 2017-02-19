@@ -19,10 +19,10 @@ import com.consumerama.security.UserSession;
 public class UsuarioController {
 
 	@Autowired
-	UserSession userSession;
+	UserSession userS;
 	
 	@Autowired
-	UsuarioRepository usuarioS;
+	UsuarioRepository usuarioR;
 	
 	@Autowired
 	private TopicoDAO topicoD;
@@ -38,7 +38,7 @@ public class UsuarioController {
 	@PostMapping("/novo")
 	public ModelAndView cadastrar(Usuario usuario, RedirectAttributes redirectAttributes){
 		ModelAndView mav = new ModelAndView("index");
-		usuarioS.save(usuario);
+		usuarioR.save(usuario);
 		return mav;
 	}
 	
@@ -46,8 +46,8 @@ public class UsuarioController {
 	public ModelAndView editar(){
 		ModelAndView mav = new ModelAndView("/usuario/meuPerfil");
 		
-		userSession.getUsuario().getId();
-		Usuario usuario = usuarioS.findOne(userSession.getUsuario().getId());
+		userS.getUsuario().getId();
+		Usuario usuario = usuarioR.findOne(userS.getUsuario().getId());
 		
 		mav.addObject("usuario", usuario);
 		return mav;
@@ -59,6 +59,12 @@ public class UsuarioController {
 		ModelAndView model = new ModelAndView("/usuario/home");
 		model.addObject("topicos", topicoD.getUltimosTopicos());
 		return model;
+	}
+	
+	@GetMapping("/deslogar")
+	public String deslogar(){
+		userS.setUsuario(null);
+		return "/index";
 	}
 	
 }

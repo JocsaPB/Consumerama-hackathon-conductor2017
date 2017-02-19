@@ -28,7 +28,9 @@
 	<![endif]-->
 </head>
 
-<body>
+<body style=" background-color: #f6f6f6">
+
+<div class="container centralizar" style="margin-top: 20px">
 	<div style="margin-top: 100px;" class="row">
 		<div class="col-md-4"></div>
 		<div class="col-md-4">
@@ -38,11 +40,13 @@
 			</c:if>
 			<form:form class="form-horizontal" method="post"
 				commandName="pagamento" action="/principal/cadastrarPagamento">
+				<fieldset>
+				<legend>Conversão de pontos de compras</legend>
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="valor">Valor:</label>
 					<div class="col-sm-10">
 						<input name="valor" required="required" type="number"
-							form-control" id="valor" placeholder="valor da compra">
+							class="form-control" id="valor" placeholder="valor da compra">
 					</div>
 				</div>
 
@@ -54,7 +58,7 @@
 					</div>
 				</div>
 				<div class="form-group">
-					<label class="control-label col-sm-2" for="categoria">Categoria:</label>
+					<label class="control-label col-sm-2" for="categoria">Categoria: </label>
 					<div class="col-sm-10">
 						<select name="categoria.id" required="required"
 							class="form-control form-control-lg" id="categoria">
@@ -68,14 +72,15 @@
 				<br />
 				<div class="form-group">
 					<div class="col-sm-offset-2 col-sm-10">
-						<button type="submit" class="btn btn-default">Cadastrar
+						<button type="submit" class="btn btn-primary">Cadastrar
 							pagamento</button>
 					</div>
 				</div>
+</fieldset>
 			</form:form>
 		</div>
 	</div>
-
+</div>
 	<script
 		src="${pageContext.request.contextPath}/javascript/vendors.min.js"></script>
 	<script

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.consumerama.dao.MensagemDAO;
+import com.consumerama.dao.TopicoDAO;
 import com.consumerama.dao.UsuarioDAO;
 import com.consumerama.model.Categoria;
 import com.consumerama.model.Topico;
@@ -36,6 +37,9 @@ public class TopicoController {
 	
 	@Autowired
 	private MensagemDAO mensagemD;
+	
+	@Autowired
+	private TopicoDAO topicoDAO;
 	
 	@GetMapping("todasAsCategorias")
 	public ModelAndView todasAsCategorias(){
@@ -88,6 +92,19 @@ public class TopicoController {
 		ModelAndView mav = new ModelAndView("/topicos/topico");
 		mav.addObject("topico", topico);
 		mav.addObject("mensagens", mensagemD.findMensagemByTopico(topico));
+		
+		return mav;
+	}
+	
+	@GetMapping("topico/categoria/{categoriaId}")
+	public ModelAndView topicoPorCategoria(@PathVariable Long categoriaId){
+		
+		Categoria categoria = new Categoria();
+		categoria.setId(categoriaId);
+		List<Topico> topicos = topicoDAO.getTopicosPorCategoria(categoria);
+		
+		ModelAndView mav = new ModelAndView("/topicos/topicosParcial");
+		mav.addObject("topicos", topicos);
 		
 		return mav;
 	}

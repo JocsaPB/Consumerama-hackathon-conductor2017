@@ -32,7 +32,7 @@
 					</div>
 
 					<div class="form-group  has-feedback">
-						<form:input path="senha" class="form-control" placeholder="Informe sua senha..."
+						<form:input path="senha" type="password" class="form-control" placeholder="Informe sua senha..."
 							required="required" />
 					</div>
 					<div class="form-group">

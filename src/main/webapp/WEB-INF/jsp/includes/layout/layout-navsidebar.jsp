@@ -44,7 +44,7 @@
 							<li><a href="/usuario/meuPerfil">Meu perfil</a></li>
 						</ul></li>
 
-					<li><a href="login.html"><em class="fa  fa-sign-out"></em></a>
+					<li><a href="/usuario/deslogar"><em class="fa  fa-sign-out"></em></a>
 					</li>
 				</ul>
 
@@ -67,7 +67,7 @@
 						</a>
 
 							<ul class="aw-menu__list  aw-menu__list--sublist">
-								<li class="aw-menu__item  aw-menu__item--link"><a href="/topico/todasAsCategorias">Categorias diversas</a></li>
+								<li class="aw-menu__item  aw-menu__item--link"><a href="/topico/todasAsCategorias">Todas as categorias</a></li>
 								<li class="aw-menu__item  aw-menu__item--link"><a href="/topico/minhasCategorias">Minhas categorias</a></li>
 								
 							</ul></li>								
