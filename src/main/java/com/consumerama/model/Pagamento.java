@@ -22,25 +22,33 @@ public class Pagamento {
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "gerador")
 	@Column(name = "ID")
 	private Long id;
-	
+
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "DATA")
 	private Date data;
-	
+
 	@Column(name = "VALOR")
 	private Double valor;
-	
+
 	@Column(name = "PONTUACAO")
 	private Integer pontuacao;
-	
+
 	@ManyToOne(fetch = FetchType.EAGER)
 	@JoinColumn(name = "ID_CATEGORIA")
 	private Categoria categoria;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "ID_USUARIO")
 	private Usuario usuario;
-	
+
+	public Usuario getUsuario() {
+		return usuario;
+	}
+
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -66,11 +74,8 @@ public class Pagamento {
 	}
 
 	public Integer getPontuacao() {
+		pontuacao = (int)(this.valor*0.01);
 		return pontuacao;
-	}
-
-	public void setPontuacao(Integer pontuacao) {
-		this.pontuacao = pontuacao;
 	}
 
 	public Categoria getCategoria() {
