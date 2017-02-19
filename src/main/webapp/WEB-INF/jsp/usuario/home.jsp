@@ -15,20 +15,25 @@
 		</ol>
 		<h2>Últimos tópicos...</h2>
 		<br />
-		<div>
+		<p style="text-align: center; width: 50%; margin-left: 25%; margin-bottom: 30px">
+			Lorem Ipsum é simplesmente uma simulação de texto da indústria tipográfica e de impressos, e vem sendo utilizado desde o século XVI, quando um impressor desconhecido pegou uma bandeja de tipos e os embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum sobreviveu não só a cinco séculos, como também ao salto para a editoração eletrônica
+		</p>
+		<div class="list-group">
 			<c:forEach items="${topicos}" var="topico">
-				<div>
-					<h4>${topico.categoria.nome}</h4>
-				</div>
-
-				<div class="col-md-12" style="background-color: #f6f6f6">
-					<div class="bs-callout bs-callout-info"
-						id="callout-helper-bg-specificity" style="paddin-bottom: 10px">
-						<a href="/topico/topico/${topico.id}" ><h4>${topico.assunto}</h4></a>
-						<p>${topico.texto}</p>
+				<div class="col-md-12 list-group-item">
+					<div>
+						<a href="/topico/topico/${topico.id}"><p>${topico.texto}</p></a>
+					</div>
+					<hr/>
+					<div style="float: right">
+						<strong>${topico.usuario.nome}</strong>
 					</div>
 				</div>
 				<br />
+				<div>
+					&nbsp
+					<!-- div apenas para criar espaçamento -->
+				</div>
 			</c:forEach>
 		</div>
 
