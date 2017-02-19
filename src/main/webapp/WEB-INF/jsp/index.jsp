@@ -11,8 +11,12 @@
 </head>
 
 <body class="aw-layout-simple-page">
-	<div class="aw-layout-simple-page__container">
+	
 
+	<div class="aw-layout-simple-page__container">
+		<c:if test="${inseriu}">
+			<div class="alert alert-success" role="alert">Usuário cadastrado com sucesso!</div>
+		</c:if>
 		<form:form class="form-horizontal col-lg-11" action="/logar"
 			method="post" commandName="usuario">
 			<div class="aw-simple-panel">

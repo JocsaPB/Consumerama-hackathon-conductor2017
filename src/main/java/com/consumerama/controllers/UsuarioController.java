@@ -48,8 +48,9 @@ public class UsuarioController {
 	
 	@PostMapping("/novo")
 	public ModelAndView cadastrar(Usuario usuario, RedirectAttributes redirectAttributes){
-		ModelAndView mav = new ModelAndView("index");
+		ModelAndView mav = new ModelAndView("redirect:/index");
 		usuarioR.save(usuario);
+		redirectAttributes.addFlashAttribute("inseriu", true);
 		return mav;
 	}
 	

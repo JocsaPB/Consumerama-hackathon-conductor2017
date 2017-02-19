@@ -17,14 +17,17 @@
 				<fieldset>
 					<legend>Meu Perfil</legend>
 
-					<h4>Ranking</h4>
-					<br>
-					<div style="display: inline-block;">
-						<c:forEach items="${listaRanking}" var="ranking">
-							<p>${ranking.nomeCategoria} - ${ranking.pontuacaoTotal}</p>
-						</c:forEach>
-					</div>
+					
+					<c:if test="${listaRanking.size()>0 }">
+						<h4>Ranking</h4>
+						<br>
+						<div style="display: inline-block;">
+							<c:forEach items="${listaRanking}" var="ranking">
+								<p>${ranking.nomeCategoria} - ${ranking.pontuacaoTotal}</p>
+							</c:forEach>
+						</div>
 					<hr/>
+					</c:if>
 					<div>
 						<form:hidden path="id" />
 					</div>

@@ -11,7 +11,9 @@
 	<jsp:include page="/WEB-INF/jsp/includes/layout/layout-navsidebar.jsp"></jsp:include>
 	<section class="aw-layout-content  js-content"
 		style="padding-top: 10px; padding-left: 30px; padding-right: 30px; height: 150px">
-
+		<c:if test="${inseriuAnuncio}">
+			<div class="alert alert-success" role="alert">Tópico criado com sucesso!</div>
+		</c:if>
 		<ol class="breadcrumb">
 			<li><a href="/usuario/home">Home</a></li>
 			<li><a href="active">Tópico</a></li>
