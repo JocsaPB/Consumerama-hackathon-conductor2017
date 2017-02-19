@@ -58,13 +58,4 @@ public class LojistaController {
 		return model;
 	}
 	
-//	@RequestMapping(value="/inserirPagamento")
-//	public ModelAndView inserirPagamento (Pagamento pagamento, 
-//			RedirectAttributes redirectAttributes) {
-//		
-//		redirectAttributes.addFlashAttribute("success", true);
-//		ModelAndView model = new ModelAndView("/principal/pagamento");
-//		return model;
-//	}
-
 }
