@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -13,27 +14,39 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 
 @Entity
-@SequenceGenerator(name="gerador", sequenceName="TOPICO_SEQ")
+@SequenceGenerator(name = "gerador", sequenceName = "TOPICO_SEQ")
 public class Topico {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="gerador")
-	@Column(name="ID")
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "gerador")
+	@Column(name = "ID")
 	private Long id;
-	
-	@Column(name="ASSUNTO")
+
+	@Column(name = "ASSUNTO")
 	private String assunto;
-	
-	@Column(name="TEXTO")
+
+	@Column(name = "TEXTO")
 	private String texto;
+
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name = "CATEGORIA_ID")
+	private Categoria categoria;
 	
-	@OneToMany
-	@JoinColumn(name="ID_TOPICO")
+
+	@OneToMany(mappedBy="topico")
 	private List<Mensagem> mensagens;
-	
+
 	@ManyToOne
-	@JoinColumn(name="ID_USUARIO")
+	@JoinColumn(name = "ID_USUARIO")
 	private Usuario usuario;
+
+	public Categoria getCategoria() {
+		return categoria;
+	}
+
+	public void setCategoria(Categoria categoria) {
+		this.categoria = categoria;
+	}
 
 	public Long getId() {
 		return id;
@@ -74,8 +87,7 @@ public class Topico {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
-	
-	
-	
 
+	
+	
 }

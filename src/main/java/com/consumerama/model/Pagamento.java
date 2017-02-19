@@ -74,8 +74,11 @@ public class Pagamento {
 	}
 
 	public Integer getPontuacao() {
-		pontuacao = (int)(this.valor*0.01);
 		return pontuacao;
+	}
+	
+	public void setPontuacao(Integer pontuacao){
+		this.pontuacao = pontuacao;
 	}
 
 	public Categoria getCategoria() {
@@ -84,6 +87,10 @@ public class Pagamento {
 
 	public void setCategoria(Categoria categoria) {
 		this.categoria = categoria;
+	}
+	
+	public Integer calcularPontuacao(){
+		return (int)(this.valor*0.13);
 	}
 
 }

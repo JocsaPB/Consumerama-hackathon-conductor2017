@@ -11,24 +11,29 @@
 	<jsp:include page="/WEB-INF/jsp/includes/layout/layout-navsidebar.jsp"></jsp:include>
 	<section class="aw-layout-content  js-content"
 		style="padding-top: 10px; padding-left: 30px; padding-right: 30px; height: 150px">
-
-		<h3>Novo Tópico</h3>
-		<br/>
-		<div class="row ">
-			<form:form action="/topico/novo/" style="padding-left: 15px" commandName="topico" method="POST">
-				<label for="categoria">Categoria</label>
-				<select id="categoria" name="categoria.id" class="form-control">
-					<option>Selecionar uma categoria...</option>
-					<c:forEach items="${categorias}" var="categoria">
-						<option value="${categoria.id}">${categoria.nome}</option>
-					</c:forEach>
-				</select> <br />
-				<div class="form-group">
-					<label for="assunto">Assunto</label> <input
-						type="text" class="form-control" name="assunto" id="assunto"
-						placeholder="Informe um título para o seu tópico">
-				</div>
-				
+		
+		<ol class="breadcrumb">
+			<li><a href="/usuario/home">Home</a></li>
+			<li><a href="active">Tópico</a></li>
+		</ol>
+		<div class="col-md-12">
+			<h2>${topico.assunto}</h2>
+			<p>
+			${topico.texto }
+			</p>
+		</div>
+		
+		<div>
+			<c:forEach items="${mensagens}" var="mensagem">
+				<p>
+				${mensagem.texto}
+				</p>
+				<strong>${mensagem.usuario.nome}</strong>
+			</c:forEach>
+		</div>
+		
+		<div class="col-md-12">
+			<form:form action="/mensagem/nova/${topico.id}" style="padding-left: 15px" commandName="topico" method="POST">
 				<div class="form-group">
 					<label for="texto">Conteúdo</label> <br/>
 					<textarea rows="5"  class="form-control" cols="40" name="texto" id="texto" placeholder="Insira seu conteúdo..."></textarea>
@@ -37,7 +42,9 @@
 				<button type="submit" class="btn btn-primary" style="float: right">Criar tópico</button>
 			</form:form>
 		</div>
-
+		
+		
+		
 	</section>
 
 	<jsp:include page="/WEB-INF/jsp/includes/layout/layout-footer.jsp"></jsp:include>

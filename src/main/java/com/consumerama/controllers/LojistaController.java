@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -45,15 +46,19 @@ public class LojistaController {
 		return model;
 	}
 	
-	@RequestMapping(value = "/cadastrarPagamento", method = RequestMethod.POST)
+	@PostMapping("/cadastrarPagamento")
 	public ModelAndView cadastrarPagamento(Pagamento pagamento, 
 			RedirectAttributes redirectAttributes){
+		
 		ModelAndView model = new ModelAndView("redirect:/principal/pagamento");
 		
 		Usuario usuario = usuarioDAO.findOneByEmail(pagamento.getUsuario().getEmail());
+		pagamento.setPontuacao(pagamento.calcularPontuacao());
 		pagamento.setData(new Date());
 		pagamento.setUsuario(usuario);
+		
 		pagamentoS.save(pagamento);
+		
 		redirectAttributes.addFlashAttribute("success", true);
 		return model;
 	}

@@ -1,11 +1,14 @@
 package com.consumerama.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.NoResultException;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
 
+import com.consumerama.model.Categoria;
 import com.consumerama.model.Usuario;
 
 @Repository
@@ -46,6 +49,11 @@ public class UsuarioDAO {
 		} catch (NoResultException exception) {
 			return null;
 		}
+	}
+	
+	public List<Categoria> findMyCategorias(Usuario usuario){
+		return (List<Categoria>) this.manager.createQuery("select distinct p.categoria from Pagamento p join p.categoria join p.usuario where p.usuario = :usuario")
+			 .setParameter("usuario", usuario).getResultList();
 	}
 
 }

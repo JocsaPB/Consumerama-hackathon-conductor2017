@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,7 +18,10 @@
 		<h3>Minhas Categorias</h3>
 		
 		<select class="form-control">
-			<option>Selecione uma categoria</option>
+			<option>Selecione uma categoria...</option>
+			<c:forEach items="${categorias}" var="categoria">
+				<option value="${categoria.id}">${categoria.nome}</option>
+			</c:forEach>
 		</select>
 		<br/>
 		

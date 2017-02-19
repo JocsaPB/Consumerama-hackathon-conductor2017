@@ -2,6 +2,7 @@ package com.consumerama.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -24,6 +25,10 @@ public class Mensagem {
 	
 	@Column(name="CURTIDAS")
 	private Integer curtidas;
+	
+	@ManyToOne
+	@JoinColumn(name = "TOPICO_ID")
+	private Topico topico;
 	
 	@ManyToOne
 	@JoinColumn(name="ID_USUARIO")
@@ -60,6 +65,15 @@ public class Mensagem {
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
 	}
+
+	public Topico getTopico() {
+		return topico;
+	}
+
+	public void setTopico(Topico topico) {
+		this.topico = topico;
+	}
+	
 	
 	
 

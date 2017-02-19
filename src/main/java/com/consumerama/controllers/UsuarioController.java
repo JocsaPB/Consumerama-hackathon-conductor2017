@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import com.consumerama.dao.TopicoDAO;
 import com.consumerama.model.Usuario;
 import com.consumerama.repository.UsuarioRepository;
 import com.consumerama.security.UserSession;
@@ -22,6 +23,9 @@ public class UsuarioController {
 	
 	@Autowired
 	UsuarioRepository usuarioS;
+	
+	@Autowired
+	private TopicoDAO topicoD;
 	
 
 	@GetMapping("/novo")
@@ -48,11 +52,12 @@ public class UsuarioController {
 		mav.addObject("usuario", usuario);
 		return mav;
 	}
+ 
 	
-	
-	@RequestMapping(value = "/home", method = RequestMethod.GET)
+	@GetMapping("/home")
 	public ModelAndView home(Usuario usuario, RedirectAttributes redirectAttributes){
 		ModelAndView model = new ModelAndView("/usuario/home");
+		model.addObject("topicos", topicoD.getUltimosTopicos());
 		return model;
 	}
 	

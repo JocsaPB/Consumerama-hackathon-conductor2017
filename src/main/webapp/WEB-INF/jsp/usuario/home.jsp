@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,29 +14,26 @@
 			<li><a href="active">Home</a></li>
 		</ol>
 		<h2>Últimos tópicos...</h2>
-		<br/>
+		<br />
 		<div>
-			<div>
-				<h4>Informática</h4>
-			</div>
-			<div class="col-md-12" style="background-color: #f6f6f6">
-				<div class="bs-callout bs-callout-info"
-					id="callout-helper-bg-specificity">
-					<h4>Dell vs Asus - Qual a melhor atualmente</h4>
-					<p>
-						Sometimes contextual background classes cannot be applied due to
-						the specificity of another selector. In some cases, a sufficient
-						workaround is to wrap your element's content in a
-						<code>&lt;div&gt;</code>
-						with the class.
-					</p>
+			<c:forEach items="${topicos}" var="topico">
+				<div>
+					<h4>${topico.categoria.nome}</h4>
 				</div>
-			</div>
+
+				<div class="col-md-12" style="background-color: #f6f6f6">
+					<div class="bs-callout bs-callout-info"
+						id="callout-helper-bg-specificity" style="paddin-bottom: 10px">
+						<a href="/topico/topico/${topico.id}" ><h4>${topico.assunto}</h4></a>
+						<p>${topico.texto}</p>
+					</div>
+				</div>
+				<br />
+			</c:forEach>
 		</div>
-			
-		</div>
-		
-		
+
+
+
 	</section>
 
 	<jsp:include page="/WEB-INF/jsp/includes/layout/layout-footer.jsp"></jsp:include>
