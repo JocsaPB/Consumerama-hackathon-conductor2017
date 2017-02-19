@@ -8,25 +8,22 @@
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
 
 <script type="text/javascript">
+	$(document).ready(function() {
 
-$(document).ready(function (){
-	
-	$( "#selectCategoria" ).change(function() {
-		
-		var idCategoria = $( "#selectCategoria option:selected" ).val();
-		
-		
-		$.ajax({
-		      type: 'get',
-		      url:'/topico/topico/categoria/'+idCategoria,
-		      success: function(retorno){
-		        $('#listagem').html(retorno);  
-		      }
-	       });
+		$("#selectCategoria").change(function() {
+
+			var idCategoria = $("#selectCategoria option:selected").val();
+
+			$.ajax({
+				type : 'get',
+				url : '/topico/topico/categoria/' + idCategoria,
+				success : function(retorno) {
+					$('#listagem').html(retorno);
+				}
+			});
+		});
+
 	});
-	
-});
-	
 </script>
 </head>
 <body>

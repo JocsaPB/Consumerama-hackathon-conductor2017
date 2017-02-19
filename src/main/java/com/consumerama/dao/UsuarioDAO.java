@@ -28,18 +28,6 @@ public class UsuarioDAO {
 			return null;
 		}
 	}
-
-	public boolean isEmailCadastrado(Usuario usuario) {
-		try {
-			this.manager.createQuery("select u from Usuario u where u.email = :email")
-					.setParameter("email", usuario.getEmail())
-					.getSingleResult();
-			return true;
-		} catch (NoResultException exception) {
-			return false;
-		}
-
-	}
 	
 	public Usuario findOneByEmail (String email) {
 		try {

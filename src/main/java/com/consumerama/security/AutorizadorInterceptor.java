@@ -17,8 +17,8 @@ public class AutorizadorInterceptor extends HandlerInterceptorAdapter {
 		
 		String uri = request.getRequestURI();
 		/*as URI's abaixo tem permissão de acesso sem necessitar de Login*/
-		if (uri.endsWith("/index") || uri.endsWith("/logar") || uri.endsWith("/principal/pagamento")
-				|| uri.endsWith("/principal/cadastrarPagamento") || uri.endsWith("/usuario/novo")) {
+		if (uri.endsWith("/index") || uri.endsWith("/logar") || uri.endsWith("/pagamento")
+				|| uri.endsWith("/usuario/novo")) {
 			return true;
 		}
 		

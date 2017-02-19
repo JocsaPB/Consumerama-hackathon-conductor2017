@@ -7,7 +7,7 @@
 <html lang="pt">
 
 <head>
-	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp"></jsp:include>
+<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp"></jsp:include>
 </head>
 
 <body class="aw-layout-simple-page">
@@ -27,13 +27,14 @@
 
 				<div class="aw-simple-panel__box">
 					<div class="form-group  has-feedback">
-						<form:input path="email" class="form-control" placeholder="Informe seu email: exemplo@email.com"
+						<form:input path="email" class="form-control"
+							placeholder="Informe seu email: exemplo@email.com"
 							required="required" />
 					</div>
 
 					<div class="form-group  has-feedback">
-						<form:input path="senha" type="password" class="form-control" placeholder="Informe sua senha..."
-							required="required" />
+						<form:input path="senha" type="password" class="form-control"
+							placeholder="Informe sua senha..." required="required" />
 					</div>
 					<div class="form-group">
 						<button class="btn  btn-primary  btn-lg  aw-btn-full-width">Entrar</button>
@@ -47,7 +48,7 @@
 
 	</div>
 
-<jsp:include page="/WEB-INF/jsp/includes/javascript.jsp"></jsp:include>
+	<jsp:include page="/WEB-INF/jsp/includes/javascript.jsp"></jsp:include>
 </body>
 
 </html>

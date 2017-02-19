@@ -17,28 +17,32 @@
 		</ol>
 
 		<h3>Novo Tópico</h3>
-		<br/>
+		<br />
 		<div class="row ">
-			<form:form action="/topico/novo/" style="padding-left: 15px" commandName="topico" method="POST">
+			<form:form action="/topico/novo/" style="padding-left: 15px"
+				commandName="topico" method="POST">
 				<label for="categoria">Categoria</label>
 				<select id="categoria" name="categoria.id" class="form-control">
 					<option>Selecionar uma categoria...</option>
 					<c:forEach items="${categorias}" var="categoria">
 						<option value="${categoria.id}">${categoria.nome}</option>
 					</c:forEach>
-				</select> <br />
+				</select>
+				<br />
 				<div class="form-group">
-					<label for="assunto">Assunto</label> <input
-						type="text" class="form-control" name="assunto" id="assunto"
+					<label for="assunto">Assunto</label> <input type="text"
+						class="form-control" name="assunto" id="assunto"
 						placeholder="Informe um título para o seu tópico">
 				</div>
-				
+
 				<div class="form-group">
-					<label for="texto">Conteúdo</label> <br/>
-					<textarea rows="5"  class="form-control" cols="40" name="texto" id="texto" placeholder="Insira seu conteúdo..."></textarea>
+					<label for="texto">Conteúdo</label> <br />
+					<textarea rows="5" class="form-control" cols="40" name="texto"
+						id="texto" placeholder="Insira seu conteúdo..."></textarea>
 				</div>
-				
-				<button type="submit" class="btn btn-primary" style="float: right">Criar tópico</button>
+
+				<button type="submit" class="btn btn-primary" style="float: right">Criar
+					tópico</button>
 			</form:form>
 		</div>
 

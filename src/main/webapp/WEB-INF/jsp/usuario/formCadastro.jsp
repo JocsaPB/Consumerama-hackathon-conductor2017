@@ -15,8 +15,8 @@
 <body style="background-color: #f6f6f6">
 
 	<div class="container centralizar" style="margin-top: 20px">
-		<form:form class="form-horizontal col-md-12"
-			action="/usuario/novo" method="post" commandName="usuario">
+		<form:form class="form-horizontal col-md-12" action="/usuario/novo"
+			method="post" commandName="usuario">
 			<fieldset>
 				<legend>Cadastre-se</legend>
 
@@ -26,14 +26,15 @@
 				<div class="form-group">
 					<label for="nome" class="col-lg-5 control-label">Nome: *</label>
 					<div class="col-lg-3">
-						<form:input path="nome" class="form-control" placeholder="Informe seu nome..."
-							required="required" />
+						<form:input path="nome" class="form-control"
+							placeholder="Informe seu nome..." required="required" />
 					</div>
 				</div>
 				<div class="form-group">
 					<label for="email" class="col-lg-5 control-label">Email: *</label>
 					<div class="col-lg-3">
-						<form:input path="email" class="form-control" placeholder="Informe seu email: exemplo@email.com"
+						<form:input path="email" class="form-control"
+							placeholder="Informe seu email: exemplo@email.com"
 							required="required" />
 					</div>
 				</div>
@@ -41,7 +42,8 @@
 					<label for="senha" class="col-lg-5 control-label">Senha: *</label>
 					<div class="col-lg-3">
 						<form:password path="senha" value="${usuario.senha }"
-							class="form-control" placeholder="Informe uma senha..." required="required" />
+							class="form-control" placeholder="Informe uma senha..."
+							required="required" />
 					</div>
 				</div>
 				<div class="form-group">
@@ -55,7 +57,7 @@
 			</fieldset>
 		</form:form>
 	</div>
-	
-<jsp:include page="/WEB-INF/jsp/includes/javascript.jsp"></jsp:include>
+
+	<jsp:include page="/WEB-INF/jsp/includes/javascript.jsp"></jsp:include>
 </body>
 </html>

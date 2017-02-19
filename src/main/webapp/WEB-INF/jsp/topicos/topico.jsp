@@ -35,7 +35,7 @@
 			<!-- div apenas para criar espaçamento -->
 		</div>
 		<section class="aw-layout-content  js-content"
-		style="padding-top: 10px; padding-left:30px; padding-right:30px; height: 150px">
+			style="padding-top: 10px; padding-left: 30px; padding-right: 30px; height: 150px">
 			<div class="list-group">
 				<c:forEach items="${mensagens}" var="mensagem">
 					<div class="col-md-12 list-group-item">
@@ -57,20 +57,19 @@
 		</section>
 
 		<div class="row">
-		<div class="col-md-12">
-			<form:form action="/mensagem/nova/${topico.id}"
-				commandName="topico" method="POST">
-				<div class="form-group">
-					<label for="texto">Novo comentário</label> <br />
-					<textarea rows="5" class="form-control" cols="40" name="texto"
-						id="texto" placeholder="Insira seu conteúdo..."></textarea>
-				</div>
+			<div class="col-md-12">
+				<form:form action="/mensagem/nova/${topico.id}" commandName="topico"
+					method="POST">
+					<div class="form-group">
+						<label for="texto">Novo comentário</label> <br />
+						<textarea rows="5" class="form-control" cols="40" name="texto"
+							id="texto" placeholder="Insira seu conteúdo..."></textarea>
+					</div>
 
-				<button type="submit" class="btn btn-primary" style="float: right">Criar
-					tópico</button>
-			</form:form>
-		</div>
-		
+					<button type="submit" class="btn btn-primary" style="float: right">Comentar</button>
+				</form:form>
+			</div>
+
 		</div>
 
 

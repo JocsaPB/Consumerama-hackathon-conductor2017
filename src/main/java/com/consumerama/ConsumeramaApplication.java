@@ -7,10 +7,10 @@ import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 @SpringBootApplication
-public class ConsuramaApplication {
+public class ConsumeramaApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ConsuramaApplication.class, args);
+		SpringApplication.run(ConsumeramaApplication.class, args);
 	}
 	
 }

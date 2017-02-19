@@ -8,38 +8,35 @@
 <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
 
 <script type="text/javascript">
+	$(document).ready(function() {
 
-$(document).ready(function (){
-	
-	$( "#selectCategoria" ).change(function() {
-		
-		var idCategoria = $( "#selectCategoria option:selected" ).val();
-		
-		
-		$.ajax({
-		      type: 'get',
-		      url:'/topico/topico/categoria/'+idCategoria,
-		      success: function(retorno){
-		        $('#listagem').html(retorno);  
-		      }
-	       });
+		$("#selectCategoria").change(function() {
+
+			var idCategoria = $("#selectCategoria option:selected").val();
+
+			$.ajax({
+				type : 'get',
+				url : '/topico/topico/categoria/' + idCategoria,
+				success : function(retorno) {
+					$('#listagem').html(retorno);
+				}
+			});
+		});
+
 	});
-	
-});
-	
 </script>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/jsp/includes/layout/layout-navsidebar.jsp"></jsp:include>
 	<section class="aw-layout-content  js-content"
-		style="padding-top: 10px; padding-left:30px; padding-right:30px; height: 150px">
-		
+		style="padding-top: 10px; padding-left: 30px; padding-right: 30px; height: 150px">
+
 		<ol class="breadcrumb">
 			<li><a href="/usuario/home">Home</a></li>
 			<li class="active">Minhas Categorias</li>
 		</ol>
 		<h3>Minhas Categorias</h3>
-		
+
 		<c:if test="${categorias.size()>0}">
 			<select class="form-control" id="selectCategoria">
 				<option>Selecione uma categoria...</option>
@@ -52,24 +49,25 @@ $(document).ready(function (){
 			<select class="form-control" id="selectCategoria" disabled="disabled">
 				<option>Você ainda não possui categorias...</option>
 			</select>
-			<br/>
+			<br />
 			<blockquote class="blockquote">
-  <p class="mb-0">
-				Você ainda não pontuou em alguma categoria. Realize compras em nossas filiais e converta suas compras em pontos!
-			</p>
-</blockquote>
-			
+				<p class="mb-0">Você ainda não pontuou em alguma categoria.
+					Realize compras em nossas filiais e converta suas compras em
+					pontos!</p>
+			</blockquote>
+
 		</c:if>
-		<br/>
-		
+		<br />
+
 		<c:if test="${categorias.size()>0}">
 			<div class="row">
-				<div class="col-md-12" >
-					<a href="/topico/novo"><input class="btn btn-primary" style="float: right" value="Novo tópico"></a>
+				<div class="col-md-12">
+					<a href="/topico/novo"><input class="btn btn-primary"
+						style="float: right" value="Novo tópico"></a>
 				</div>
 			</div>
 		</c:if>
-		<br/>
+		<br />
 		<div id="listagem" class="row" style="padding-bottom: 10px">
 			<jsp:include page="/WEB-INF/jsp/topicos/topicosParcial.jsp"></jsp:include>
 		</div>
