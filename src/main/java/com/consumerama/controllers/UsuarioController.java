@@ -38,10 +38,9 @@ public class UsuarioController {
 		return mav;
 	}
 	
-	//Enviando para a páginda de ediçao dos dados do usuário
-	@GetMapping("/edicao")
+	@GetMapping("/meuPerfil")
 	public ModelAndView editar(){
-		ModelAndView mav = new ModelAndView("/usuario/editar");
+		ModelAndView mav = new ModelAndView("/usuario/meuPerfil");
 		
 		userSession.getUsuario().getId();
 		Usuario usuario = usuarioS.findOne(userSession.getUsuario().getId());

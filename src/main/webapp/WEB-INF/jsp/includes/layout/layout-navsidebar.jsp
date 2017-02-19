@@ -37,11 +37,11 @@
 								<div class="aw-logged-user">
 									<img src="https://api.adorable.io/avatars/80/joaodascouves"
 										width="80" height="80" alt="" class="aw-logged-user__picture" />
-									<span class="aw-logged-user__name">Usuário xyz</span>
+									<span class="aw-logged-user__name">Nome do usuario</span>
 								</div>
 							</li>
 							<li role="separator" class="divider"></li>
-							<li><a href="#">Meu perfil</a></li>
+							<li><a href="/usuario/meuPerfil">Meu perfil</a></li>
 						</ul></li>
 
 					<li><a href="login.html"><em class="fa  fa-sign-out"></em></a>
@@ -58,19 +58,23 @@
 				<nav class="aw-menu  js-menu">
 					<ul class="aw-menu__list">
 
-						<li class="aw-menu__item"><a href="#"><i
-								class="fa  fa-fw  fa-home"></i><span>Dashboard</span></a></li>
-
-						<li class="aw-menu__item  is-active"><a href="#"> <i
-								class="fa  fa-fw  fa-file-text"></i><span>Cadastros</span> <i
+						<li class="aw-menu__item"><a href="/usuario/home"><i
+								class="fa  fa-fw  fa-home"></i><span>Página inicial</span></a></li>
+	
+							<li class="aw-menu__item  is-active"><a href="#"> <i
+								class="fa  fa-fw  fa-file-text"></i><span>Fórum</span> <i
 								class="aw-menu__navigation-icon  fa"></i>
 						</a>
 
 							<ul class="aw-menu__list  aw-menu__list--sublist">
-								<li class="aw-menu__item  aw-menu__item--link"><a href="#">Item
-										...</a></li>
+								<li class="aw-menu__item  aw-menu__item--link"><a href="#">Categorias diversas</a></li>
+								<li class="aw-menu__item  aw-menu__item--link"><a href="#">Minhas categorias</a></li>
+								
+							</ul></li>								
+								
+						<li class="aw-menu__item"><a href="/chat"><i
+								class="fa  fa-fw  fa-home"></i><span>CHAT</span></a></li>								
 
-							</ul></li>
 					</ul>
 				</nav>
 
