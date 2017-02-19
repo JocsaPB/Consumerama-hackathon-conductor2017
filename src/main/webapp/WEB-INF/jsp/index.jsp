@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -7,24 +7,14 @@
 <html lang="pt">
 
 <head>
-<meta charset="UTF-8" />
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-
-<title>Inicio</title>
-
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/vendors.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/algaworks.min.css" />
-<link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/application.css" />
+	<jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp"></jsp:include>
 </head>
 
 <body class="aw-layout-simple-page">
 	<div class="aw-layout-simple-page__container">
 
-		<form:form class="form-horizontal col-lg-11" action="/logar" method="post" commandName="usuario">
+		<form:form class="form-horizontal col-lg-11" action="/logar"
+			method="post" commandName="usuario">
 			<div class="aw-simple-panel">
 				<!-- link da imagem original 
 					https://www.google.com.br/search?q=hackathon.png&espv=2&biw=1366&bih=702&source=lnms&tbm=isch&sa=X&ved=0ahUKEwjo8Y3GtJPSAhXIW5AKHW9MCrQQ_AUIBigB#imgrc=7iOti2lQVF5_pM:
@@ -37,15 +27,13 @@
 
 				<div class="aw-simple-panel__box">
 					<div class="form-group  has-feedback">
-							<form:input path="email" class="form-control" placeholder="email" required="required"/>
+						<form:input path="email" class="form-control" placeholder="Informe seu email: exemplo@email.com"
+							required="required" />
 					</div>
 
 					<div class="form-group  has-feedback">
-<!-- 						<input type="password" class="form-control  input-lg" -->
-<!-- 							placeholder="Sua senha" /> <span -->
-<!-- 							class="glyphicon  glyphicon-lock  form-control-feedback" -->
-<!-- 							aria-hidden="true"></span> -->
-							<form:input path="senha" class="form-control" placeholder="senha" required="required"/>
+						<form:input path="senha" class="form-control" placeholder="Informe sua senha..."
+							required="required" />
 					</div>
 					<div class="form-group">
 						<button class="btn  btn-primary  btn-lg  aw-btn-full-width">Entrar</button>
@@ -59,8 +47,7 @@
 
 	</div>
 
-	<script src="${pageContext.request.contextPath}/resources/javascript/vendors.min.js"></script>
-	<script src="${pageContext.request.contextPath}/resources/javascript/algaworks.min.js"></script>
+<jsp:include page="/WEB-INF/jsp/includes/javascript.jsp"></jsp:include>
 </body>
 
 </html>

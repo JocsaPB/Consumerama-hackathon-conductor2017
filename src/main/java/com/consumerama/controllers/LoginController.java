@@ -13,7 +13,7 @@ import com.consumerama.model.Usuario;
 import com.consumerama.security.UserSession;
 
 @Controller
-@RequestMapping("/")
+@RequestMapping({"/", "/index"})
 public class LoginController {
 
 
