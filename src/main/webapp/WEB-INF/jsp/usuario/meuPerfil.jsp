@@ -5,6 +5,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <jsp:include page="/WEB-INF/jsp/includes/cabecalho.jsp"></jsp:include>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/jsp/includes/layout/layout-navsidebar.jsp"></jsp:include>
@@ -16,6 +17,14 @@
 				<fieldset>
 					<legend>Meu Perfil</legend>
 
+					<h4>Ranking</h4>
+					<br>
+					<div style="display: inline-block;">
+						<c:forEach items="${listaRanking}" var="ranking">
+							<p>${ranking.nomeCategoria} - ${ranking.pontuacaoTotal}</p>
+						</c:forEach>
+					</div>
+					<hr/>
 					<div>
 						<form:hidden path="id" />
 					</div>

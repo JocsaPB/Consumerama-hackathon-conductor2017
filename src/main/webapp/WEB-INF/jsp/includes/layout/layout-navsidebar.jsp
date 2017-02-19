@@ -27,23 +27,6 @@
 
 				<ul class="nav navbar-nav  navbar-right">
 
-					<li class="dropdown"><a href="#" class="dropdown-toggle"
-						data-toggle="dropdown" role="button" aria-haspopup="true"
-						aria-expanded="false"> <i class="fa  fa-user"></i>
-					</a>
-
-						<ul class="dropdown-menu">
-							<li>
-								<div class="aw-logged-user">
-									<img src="https://api.adorable.io/avatars/80/joaodascouves"
-										width="80" height="80" alt="" class="aw-logged-user__picture" />
-									<span class="aw-logged-user__name">Nome do usuario</span>
-								</div>
-							</li>
-							<li role="separator" class="divider"></li>
-							<li><a href="/usuario/meuPerfil">Meu perfil</a></li>
-						</ul></li>
-
 					<li><a href="/usuario/deslogar"><em class="fa  fa-sign-out"></em></a>
 					</li>
 				</ul>
@@ -69,11 +52,10 @@
 							<ul class="aw-menu__list  aw-menu__list--sublist">
 								<li class="aw-menu__item  aw-menu__item--link"><a href="/topico/todasAsCategorias">Todas as categorias</a></li>
 								<li class="aw-menu__item  aw-menu__item--link"><a href="/topico/minhasCategorias">Minhas categorias</a></li>
-								
 							</ul></li>								
 								
-						<li class="aw-menu__item"><a href="/chat"><i
-								class="fa  fa-fw  fa-home"></i><span>CHAT</span></a></li>								
+						<li class="aw-menu__item"><a href="/usuario/meuPerfil"><i
+								class="fa  fa-fw  fa-home"></i><span>Meu Perfil</span></a></li>								
 
 					</ul>
 				</nav>
