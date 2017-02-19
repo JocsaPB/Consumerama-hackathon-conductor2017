@@ -37,5 +37,15 @@ public class UsuarioDAO {
 		}
 
 	}
+	
+	public Usuario findOneByEmail (String email) {
+		try {
+			return (Usuario) this.manager.createQuery("select u from Usuario u where u.email = :email")
+					.setParameter("email", email)
+					.getSingleResult();
+		} catch (NoResultException exception) {
+			return null;
+		}
+	}
 
 }
