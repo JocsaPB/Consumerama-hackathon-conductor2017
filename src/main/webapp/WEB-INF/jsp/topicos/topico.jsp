@@ -27,7 +27,7 @@
 				<p>${topico.texto }</p>
 				<hr />
 				<div style="float: right">
-					<strong>${topico.usuario.nome } | ##.## Pontos</strong>
+					<strong>${topico.usuario.nome }</strong>
 				</div>
 			</div>
 		</div>

@@ -13,16 +13,9 @@
 		<ol class="breadcrumb">
 			<li><a href="active">Home</a></li>
 		</ol>
-		<h2>Últimos tópicos...</h2>
+		<h2>Ultimos topicos...</h2>
 		<br />
-		<p
-			style="text-align: center; width: 50%; margin-left: 25%; margin-bottom: 30px">
-			Lorem Ipsum é simplesmente uma simulação de texto da indústria
-			tipográfica e de impressos, e vem sendo utilizado desde o século XVI,
-			quando um impressor desconhecido pegou uma bandeja de tipos e os
-			embaralhou para fazer um livro de modelos de tipos. Lorem Ipsum
-			sobreviveu não só a cinco séculos, como também ao salto para a
-			editoração eletrônica</p>
+			
 		<c:if test="${topicos.size()>0}">
 
 			<div class="list-group">
@@ -39,7 +32,7 @@
 					<br />
 					<div>
 						&nbsp
-						<!-- div apenas para criar espaçamento -->
+						<!-- div apenas para criar espaÃ§amento -->
 					</div>
 				</c:forEach>
 			</div>
@@ -48,7 +41,7 @@
 		<c:if test="${topicos.isEmpty()}">
 			<blockquote class="blockquote">
 				<p class="mb-0">
-					Ainda não existe nenhum tópico criado...<br />
+					Ainda nÃ£o existe nenhum tÃ³pico criado...<br />
 					<a href="/topico/novo">Seja o primeiro a criar!</a>
 				</p>
 			</blockquote>
