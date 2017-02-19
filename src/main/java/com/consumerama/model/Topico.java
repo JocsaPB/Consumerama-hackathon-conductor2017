@@ -21,9 +21,6 @@ public class Topico {
 	@Column(name="ID")
 	private Long id;
 	
-	@Column(name="TITULO")
-	private String titulo;
-	
 	@Column(name="ASSUNTO")
 	private String assunto;
 	
@@ -44,14 +41,6 @@ public class Topico {
 
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	public String getTitulo() {
-		return titulo;
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
 	}
 
 	public String getAssunto() {
