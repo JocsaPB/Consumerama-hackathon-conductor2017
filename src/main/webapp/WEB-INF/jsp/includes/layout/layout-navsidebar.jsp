@@ -67,8 +67,8 @@
 						</a>
 
 							<ul class="aw-menu__list  aw-menu__list--sublist">
-								<li class="aw-menu__item  aw-menu__item--link"><a href="#">Categorias diversas</a></li>
-								<li class="aw-menu__item  aw-menu__item--link"><a href="#">Minhas categorias</a></li>
+								<li class="aw-menu__item  aw-menu__item--link"><a href="/topico/todasAsCategorias">Categorias diversas</a></li>
+								<li class="aw-menu__item  aw-menu__item--link"><a href="/topico/minhasCategorias">Minhas categorias</a></li>
 								
 							</ul></li>								
 								
